@@ -12,12 +12,14 @@ body{color:#f8fafc;background:#080e17;font-family:system-ui,-apple-system,'Segoe
 #leaf .front,#leaf .back{position:absolute;inset:0;background:#fff;overflow:hidden;backface-visibility:hidden}
 #leaf .front img,#leaf .back img{width:100%;height:100%;object-fit:contain;display:block}
 #leaf .back{transform:rotateY(180deg)}
+#leaf::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset -12px 0 16px #0002}
 #curlCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:5;display:none;pointer-events:none;image-rendering:auto}
 #book.promo-page .sheet{background:#080808}
-#leaf.flipForward{display:block;animation:fwd .44s cubic-bezier(.25,.72,.2,1) both}
-#leaf.flipBackward{display:block;animation:bwd .44s cubic-bezier(.25,.72,.2,1) both}
+#leaf.flipForward{display:block;transform-origin:left center;animation:fwd .43s cubic-bezier(.22,.78,.24,1) both}
+#leaf.flipBackward{display:block;transform-origin:right center;animation:backpage .43s cubic-bezier(.22,.78,.24,1) both}
 @keyframes fwd{from{transform:rotateY(0)}to{transform:rotateY(-180deg)}}
 @keyframes bwd{from{transform:rotateY(-180deg)}to{transform:rotateY(0)}}
+@keyframes backpage{from{transform:rotateY(-165deg)}to{transform:rotateY(0deg)}}
 #notice{position:absolute;z-index:5;top:8px;left:50%;transform:translateX(-50%);background:#3d241dec;border:1px solid #cea45c;border-radius:5px;font-size:10px;padding:4px 8px;display:none;text-align:center;max-width:92%}
 #hint{position:absolute;z-index:5;top:8px;left:50%;transform:translateX(-50%);font-size:10px;background:#121d2be8;color:#eaf0f7;white-space:nowrap;padding:6px 10px;border-radius:999px;pointer-events:none;transition:opacity .4s}
 /* Page 59 offer only occupies the genuine, unused white area beneath the screw-size table. */
@@ -35,7 +37,7 @@ nav{flex:0 0 auto;background:linear-gradient(180deg,#162334,#0c1420);border-top:
 button{font-family:inherit;cursor:pointer;touch-action:manipulation;user-select:none;appearance:none;-webkit-appearance:none}
 button:disabled{opacity:.55;cursor:default}
 .nav-arrow{flex:0 0 38px;min-width:0;height:36px;border:1px solid #667b90;border-radius:8px;background:linear-gradient(180deg,#34455a,#1b2839);color:#fff;font-weight:700;font-size:21px;line-height:1;text-shadow:0 1px 1px #0008}
-#prev,#next{background:linear-gradient(180deg,#ffffff 0%,#edf3fa 24%,#b9c9dc 100%);border-color:#dfe8f2;color:#1a2532;text-shadow:none;box-shadow:inset 0 1px 0 #ffffffd9,0 1px 4px #0006;font-weight:850}
+#prev,#next{touch-action:none;-webkit-touch-callout:none;user-select:none;-webkit-user-select:none;background:linear-gradient(180deg,#ffffff 0%,#edf3fa 24%,#b9c9dc 100%);border-color:#dfe8f2;color:#1a2532;text-shadow:none;box-shadow:inset 0 1px 0 #ffffffd9,0 1px 4px #0006;font-weight:850}
 .scrub-unit{display:flex;flex:1;min-width:0;flex-direction:column;justify-content:center;gap:1px;height:100%}
 .scrub-top{display:flex;align-items:center;justify-content:space-between;gap:3px;font-size:11px;font-weight:780;white-space:nowrap;color:#e7edf5;min-height:16px}
 .scrub-top .position{font-variant-numeric:tabular-nums;letter-spacing:.04em}
@@ -234,7 +236,7 @@ nav{padding-bottom:3px}
 </div>
 <script>
 const MANIFEST=[{"n":1,"file":"pages/001.webp","note":"","scene":"","updated":true},{"n":2,"file":"pages/002.webp","note":"","scene":"","updated":true},{"n":3,"file":"pages/003.webp","note":"","scene":"","updated":true},{"n":4,"file":"pages/004.webp","note":"","scene":"","updated":true},{"n":5,"file":"pages/005.webp","note":"","scene":"","updated":true},{"n":6,"file":"pages/006.webp","note":"","scene":"","updated":true},{"n":7,"file":"pages/007.webp","note":"","scene":"","updated":true},{"n":8,"file":"pages/008.webp","note":"","scene":"","updated":true},{"n":9,"file":"pages/009.webp","note":"","scene":"","updated":true},{"n":10,"file":"pages/010.webp","note":"","scene":"","updated":true},{"n":11,"file":"pages/011.webp","note":"","scene":"","updated":true},{"n":12,"file":"pages/012.webp","note":"","scene":"","updated":true},{"n":13,"file":"pages/013.webp","note":"","scene":"","updated":true},{"n":14,"file":"pages/014.webp","note":"","scene":"","updated":true},{"n":15,"file":"pages/015.webp","note":"","scene":"","updated":true},{"n":16,"file":"pages/016.webp","note":"","scene":"","updated":true},{"n":17,"file":"pages/017.webp","note":"","scene":"","updated":true},{"n":18,"file":"pages/018.webp","note":"","scene":"","updated":true},{"n":19,"file":"pages/019.webp","note":"","scene":"","updated":true},{"n":20,"file":"pages/020.webp","note":"","scene":"","updated":true},{"n":21,"file":"pages/021.webp","note":"","scene":"","updated":true},{"n":22,"file":"pages/022.webp","note":"","scene":"","updated":true},{"n":23,"file":"pages/023.webp","note":"","scene":"","updated":true},{"n":24,"file":"pages/024.webp","note":"","scene":"","updated":true},{"n":25,"file":"pages/025.webp","note":"","scene":"","updated":true},{"n":26,"file":"pages/026.webp","note":"","scene":"","updated":true},{"n":27,"file":"pages/027.webp","note":"","scene":"","updated":true},{"n":28,"file":"pages/028.webp","note":"","scene":"","updated":true},{"n":29,"file":"pages/029.webp","note":"","scene":"","updated":true},{"n":30,"file":"pages/030.webp","note":"","scene":"","updated":true},{"n":31,"file":"pages/031.webp","note":"","scene":"","updated":true},{"n":32,"file":"pages/032.webp","note":"","scene":"","updated":true},{"n":33,"file":"pages/033.webp","note":"","scene":"","updated":true},{"n":34,"file":"pages/034.webp","note":"","scene":"","updated":true},{"n":35,"file":"pages/035.webp","note":"","scene":"","updated":true},{"n":36,"file":"pages/036.webp","note":"","scene":"","updated":true},{"n":37,"file":"pages/037.webp","note":"","scene":"","updated":true},{"n":38,"file":"pages/038.webp","note":"","scene":"","updated":true},{"n":39,"file":"pages/039.webp","note":"","scene":"","updated":true},{"n":40,"file":"pages/040.webp","note":"","scene":"","updated":true},{"n":41,"file":"pages/041.webp","note":"","scene":"","updated":true},{"n":42,"file":"pages/042.webp","note":"","scene":"","updated":true},{"n":43,"file":"pages/043.webp","note":"","scene":"","updated":true},{"n":44,"file":"pages/044.webp","note":"","scene":"","updated":true},{"n":45,"file":"pages/045.webp","note":"","scene":"","updated":true},{"n":46,"file":"pages/046.webp","note":"","scene":"","updated":true},{"n":47,"file":"pages/047.webp","note":"","scene":"","updated":true},{"n":48,"file":"pages/048.webp","note":"","scene":"","updated":true},{"n":49,"file":"pages/049.webp","note":"","scene":"","updated":true},{"n":50,"file":"pages/050.webp","note":"","scene":"","updated":true},{"n":51,"file":"pages/051.webp","note":"","scene":"","updated":true},{"n":52,"file":"pages/052.webp","note":"","scene":"","updated":true},{"n":53,"file":"pages/053.webp","note":"","scene":"","updated":true},{"n":54,"file":"pages/054.webp","note":"","scene":"","updated":true},{"n":55,"file":"pages/055.webp","note":"","scene":"","updated":true},{"n":56,"file":"pages/056.webp","note":"","scene":"","updated":true},{"n":57,"file":"pages/057.webp","note":"","scene":"","updated":true},{"n":58,"file":"pages/058.webp","note":"","scene":"","updated":true},{"n":59,"file":"pages/059.webp","note":"","scene":"","updated":true},{"n":60,"file":"pages/060.webp","note":"","scene":"","updated":true},{"n":61,"file":"pages/061.webp","note":"","scene":"","updated":true},{"n":62,"file":"pages/062.webp","note":"","scene":"","updated":true},{"n":63,"file":"pages/063.webp","note":"","scene":"","updated":true},{"n":64,"file":"pages/064.webp","note":"","scene":"","updated":true},{"n":65,"file":"pages/065.webp","note":"","scene":"","updated":true},{"n":66,"file":"pages/066.webp","note":"","scene":"","updated":true},{"n":67,"file":"pages/067.webp","note":"","scene":"","updated":true},{"n":68,"file":"pages/068.webp","note":"","scene":"","updated":true},{"n":69,"file":"pages/069.webp","note":"","scene":"","updated":true},{"n":70,"file":"pages/070.webp","note":"","scene":"","updated":true},{"n":71,"file":"pages/071.webp","note":"","scene":"","updated":true},{"n":72,"file":"pages/072.webp","note":"","scene":"","updated":true},{"n":73,"file":"pages/073.webp","note":"","scene":"","updated":true},{"n":74,"file":"pages/074.webp","note":"","scene":"","updated":true},{"n":75,"file":"pages/075.webp","note":"","scene":"","updated":true},{"n":76,"file":"pages/076.webp","note":"","scene":"","updated":true},{"n":77,"file":"pages/077.webp","note":"","scene":"","updated":true},{"n":78,"file":"pages/078.webp","note":"","scene":"","updated":true},{"n":79,"file":"pages/079.webp","note":"","scene":"","updated":true},{"n":80,"file":"pages/080.webp","note":"","scene":"","updated":true},{"n":81,"file":"pages/081.webp","note":"","scene":"","updated":true},{"n":82,"file":"pages/082.webp","note":"","scene":"","updated":true},{"n":83,"file":"pages/083.webp","note":"","scene":"","updated":true},{"n":84,"file":"pages/084.webp","note":"","scene":"","updated":true},{"n":85,"file":"pages/085.webp","note":"","scene":"","updated":true},{"n":86,"file":"pages/086.webp","note":"","scene":"","updated":true},{"n":87,"file":"pages/087.webp","note":"","scene":"","updated":true},{"n":88,"file":"pages/088.webp","note":"","scene":"","updated":true},{"n":89,"file":"pages/089.webp","note":"","scene":"","updated":true},{"n":90,"file":"pages/090.webp","note":"","scene":"","updated":true},{"n":91,"file":"pages/091.webp","note":"","scene":"","updated":true},{"n":92,"file":"pages/092.webp","note":"","scene":"","updated":true},{"n":93,"file":"pages/093.webp","note":"","scene":"","updated":true},{"n":94,"file":"pages/094.webp","note":"","scene":"","updated":true},{"n":95,"file":"pages/095.webp","note":"","scene":"","updated":true},{"n":96,"file":"pages/096.webp","note":"","scene":"","updated":true},{"n":97,"file":"pages/097.webp","note":"","scene":"","updated":true},{"n":98,"file":"pages/098.webp","note":"","scene":"","updated":true},{"n":99,"file":"pages/099.webp","note":"","scene":"","updated":true},{"n":100,"file":"pages/100.webp","note":"","scene":"","updated":true},{"n":101,"file":"pages/101.webp","note":"","scene":"","updated":true},{"n":102,"file":"pages/102.webp","note":"","scene":"","updated":true},{"n":103,"file":"pages/103.webp","note":"","scene":"","updated":true},{"n":104,"file":"pages/104.webp","note":"","scene":"","updated":true},{"n":105,"file":"pages/105.webp","note":"","scene":"","updated":true},{"n":106,"file":"pages/106.webp","note":"","scene":"","updated":true},{"n":107,"file":"pages/107.webp","note":"","scene":"","updated":true},{"n":108,"file":"pages/108.webp","note":"","scene":"","updated":true},{"n":109,"file":"pages/109.webp","note":"","scene":"","updated":true},{"n":110,"file":"pages/110.webp","note":"","scene":"","updated":true},{"n":111,"file":"pages/111.webp","note":"","scene":"","updated":true},{"n":112,"file":"pages/112.webp","note":"","scene":"","updated":true},{"n":113,"file":"pages/113.webp","note":"","scene":"","updated":true},{"n":114,"file":"pages/114.webp","note":"","scene":"","updated":true},{"n":115,"file":"pages/115.webp","note":"","scene":"","updated":true},{"n":116,"file":"pages/116.webp","note":"","scene":"","updated":true},{"n":117,"file":"pages/117.webp","note":"","scene":"","updated":true},{"n":118,"file":"pages/118.webp","note":"","scene":"","updated":true}];
-const PAGE_IMAGES=["./pages/001.webp?v=20261019-MAXMASTER-1","./pages/002.webp?v=20261019-MAXMASTER-1","./pages/003.webp?v=20261019-MAXMASTER-1","./pages/004.webp?v=20261019-MAXMASTER-1","./pages/005.webp?v=20261019-MAXMASTER-1","./pages/006.webp?v=20261019-MAXMASTER-1","./pages/007.webp?v=20261019-MAXMASTER-1","./pages/008.webp?v=20261019-MAXMASTER-1","./pages/009.webp?v=20261019-MAXMASTER-1","./pages/010.webp?v=20261019-MAXMASTER-1","./pages/011.webp?v=20261019-MAXMASTER-1","./pages/012.webp?v=20261019-MAXMASTER-1","./pages/013.webp?v=20261019-MAXMASTER-1","./pages/014.webp?v=20261019-MAXMASTER-1","./pages/015.webp?v=20261019-MAXMASTER-1","./pages/016.webp?v=20261019-MAXMASTER-1","./pages/017.webp?v=20261019-MAXMASTER-1","./pages/018.webp?v=20261019-MAXMASTER-1","./pages/019.webp?v=20261019-MAXMASTER-1","./pages/020.webp?v=20261019-MAXMASTER-1","./pages/021.webp?v=20261019-MAXMASTER-1","./pages/022.webp?v=20261019-MAXMASTER-1","./pages/023.webp?v=20261019-MAXMASTER-1","./pages/024.webp?v=20261019-MAXMASTER-1","./pages/025.webp?v=20261019-MAXMASTER-1","./pages/026.webp?v=20261019-MAXMASTER-1","./pages/027.webp?v=20261019-MAXMASTER-1","./pages/028.webp?v=20261019-MAXMASTER-1","./pages/029.webp?v=20261019-MAXMASTER-1","./pages/030.webp?v=20261019-MAXMASTER-1","./pages/031.webp?v=20261019-MAXMASTER-1","./pages/032.webp?v=20261019-MAXMASTER-1","./pages/033.webp?v=20261019-MAXMASTER-1","./pages/034.webp?v=20261019-MAXMASTER-1","./pages/035.webp?v=20261019-MAXMASTER-1","./pages/036.webp?v=20261019-MAXMASTER-1","./pages/037.webp?v=20261019-MAXMASTER-1","./pages/038.webp?v=20261019-MAXMASTER-1","./pages/039.webp?v=20261019-MAXMASTER-1","./pages/040.webp?v=20261019-MAXMASTER-1","./pages/041.webp?v=20261019-MAXMASTER-1","./pages/042.webp?v=20261019-MAXMASTER-1","./pages/043.webp?v=20261019-MAXMASTER-1","./pages/044.webp?v=20261019-MAXMASTER-1","./pages/045.webp?v=20261019-MAXMASTER-1","./pages/046.webp?v=20261019-MAXMASTER-1","./pages/047.webp?v=20261019-MAXMASTER-1","./pages/048.webp?v=20261019-MAXMASTER-1","./pages/049.webp?v=20261019-MAXMASTER-1","./pages/050.webp?v=20261019-MAXMASTER-1","./pages/051.webp?v=20261019-MAXMASTER-1","./pages/052.webp?v=20261019-MAXMASTER-1","./pages/053.webp?v=20261019-MAXMASTER-1","./pages/054.webp?v=20261019-MAXMASTER-1","./pages/055.webp?v=20261019-MAXMASTER-1","./pages/056.webp?v=20261019-MAXMASTER-1","./pages/057.webp?v=20261019-MAXMASTER-1","./pages/058.webp?v=20261019-MAXMASTER-1","./pages/059.webp?v=20261019-MAXMASTER-1","./pages/060.webp?v=20261019-MAXMASTER-1","./pages/061.webp?v=20261019-MAXMASTER-1","./pages/062.webp?v=20261019-MAXMASTER-1","./pages/063.webp?v=20261019-MAXMASTER-1","./pages/064.webp?v=20261019-MAXMASTER-1","./pages/065.webp?v=20261019-MAXMASTER-1","./pages/066.webp?v=20261019-MAXMASTER-1","./pages/067.webp?v=20261019-MAXMASTER-1","./pages/068.webp?v=20261019-MAXMASTER-1","./pages/069.webp?v=20261019-MAXMASTER-1","./pages/070.webp?v=20261019-MAXMASTER-1","./pages/071.webp?v=20261019-MAXMASTER-1","./pages/072.webp?v=20261019-MAXMASTER-1","./pages/073.webp?v=20261019-MAXMASTER-1","./pages/074.webp?v=20261019-MAXMASTER-1","./pages/075.webp?v=20261019-MAXMASTER-1","./pages/076.webp?v=20261019-MAXMASTER-1","./pages/077.webp?v=20261019-MAXMASTER-1","./pages/078.webp?v=20261019-MAXMASTER-1","./pages/079.webp?v=20261019-MAXMASTER-1","./pages/080.webp?v=20261019-MAXMASTER-1","./pages/081.webp?v=20261019-MAXMASTER-1","./pages/082.webp?v=20261019-MAXMASTER-1","./pages/083.webp?v=20261019-MAXMASTER-1","./pages/084.webp?v=20261019-MAXMASTER-1","./pages/085.webp?v=20261019-MAXMASTER-1","./pages/086.webp?v=20261019-MAXMASTER-1","./pages/087.webp?v=20261019-MAXMASTER-1","./pages/088.webp?v=20261019-MAXMASTER-1","./pages/089.webp?v=20261019-MAXMASTER-1","./pages/090.webp?v=20261019-MAXMASTER-1","./pages/091.webp?v=20261019-MAXMASTER-1","./pages/092.webp?v=20261019-MAXMASTER-1","./pages/093.webp?v=20261019-MAXMASTER-1","./pages/094.webp?v=20261019-MAXMASTER-1","./pages/095.webp?v=20261019-MAXMASTER-1","./pages/096.webp?v=20261019-MAXMASTER-1","./pages/097.webp?v=20261019-MAXMASTER-1","./pages/098.webp?v=20261019-MAXMASTER-1","./pages/099.webp?v=20261019-MAXMASTER-1","./pages/100.webp?v=20261019-MAXMASTER-1","./pages/101.webp?v=20261019-MAXMASTER-1","./pages/102.webp?v=20261019-MAXMASTER-1","./pages/103.webp?v=20261019-MAXMASTER-1","./pages/104.webp?v=20261019-MAXMASTER-1","./pages/105.webp?v=20261019-MAXMASTER-1","./pages/106.webp?v=20261019-MAXMASTER-1","./pages/107.webp?v=20261019-MAXMASTER-1","./pages/108.webp?v=20261019-MAXMASTER-1","./pages/109.webp?v=20261019-MAXMASTER-1","./pages/110.webp?v=20261019-MAXMASTER-1","./pages/111.webp?v=20261019-MAXMASTER-1","./pages/112.webp?v=20261019-MAXMASTER-1","./pages/113.webp?v=20261019-MAXMASTER-1","./pages/114.webp?v=20261019-MAXMASTER-1","./pages/115.webp?v=20261019-MAXMASTER-1","./pages/116.webp?v=20261019-MAXMASTER-1","./pages/117.webp?v=20261019-MAXMASTER-1","./pages/118.webp?v=20261019-MAXMASTER-1"];
+const PAGE_IMAGES=["./pages/001.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/002.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/003.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/004.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/005.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/006.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/007.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/008.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/009.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/010.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/011.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/012.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/013.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/014.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/015.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/016.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/017.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/018.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/019.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/020.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/021.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/022.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/023.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/024.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/025.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/026.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/027.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/028.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/029.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/030.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/031.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/032.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/033.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/034.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/035.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/036.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/037.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/038.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/039.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/040.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/041.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/042.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/043.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/044.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/045.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/046.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/047.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/048.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/049.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/050.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/051.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/052.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/053.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/054.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/055.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/056.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/057.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/058.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/059.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/060.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/061.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/062.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/063.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/064.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/065.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/066.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/067.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/068.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/069.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/070.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/071.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/072.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/073.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/074.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/075.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/076.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/077.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/078.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/079.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/080.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/081.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/082.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/083.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/084.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/085.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/086.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/087.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/088.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/089.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/090.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/091.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/092.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/093.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/094.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/095.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/096.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/097.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/098.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/099.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/100.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/101.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/102.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/103.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/104.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/105.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/106.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/107.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/108.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/109.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/110.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/111.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/112.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/113.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/114.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/115.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/116.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/117.webp?v=20261019-MAX-PLATINUM-LIVE3","./pages/118.webp?v=20261019-MAX-PLATINUM-LIVE3"];
 
 
 
@@ -282,7 +284,7 @@ function placeSmallPageNumber(){
 }
 function controls(){book.classList.toggle('promo-page',current===59);const d=MANIFEST[current-FIRST];$('count').textContent='PAGE '+current+' / '+LAST;$('pageBookNumber').textContent=String(current);placeSmallPageNumber();$('pageBookNumber').setAttribute('aria-label','Catalogue page '+current);$('jump').value=current;$('scrub').value=current;$('scrub').setAttribute('aria-valuetext','Page '+current);$('prev').disabled=current===FIRST;$('next').disabled=current===LAST;$('back10').disabled=current===FIRST;$('fwd10').disabled=current===LAST;$('page59Offer').style.display='none';const t=d.note||'';$('notice').textContent=t?'TO CHECK: '+t:'';$('notice').style.display=t?'block':'none'}
 function prime(n){for(const i of [n-1,n+1])if(i>=FIRST&&i<=LAST){const im=new Image();im.onerror=()=>{const failed=im.getAttribute('src'),alt=fallbackPath(failed);missingPageUrls.add(failed);if(alt&&!missingPageUrls.has(alt))im.src=alt};im.src=src(i)}}
-function direct(n){if(!Number.isInteger(n)||n<FIRST||n>LAST)return;cancelCurl();busy=false;clearTimeout(animationTimer);leaf.className='';leaf.style.display='none';$('nextPage').style.display='none';book.classList.remove('riffling');current=n;mainImg.src=src(n);resetZoom();controls();prime(n);try{history.replaceState(null,'','#page='+n)}catch(e){}}
+function direct(n){if(!Number.isInteger(n)||n<FIRST||n>LAST)return;cancelCurl();busy=false;clearTimeout(animationTimer);leaf.className='';leaf.style.display='none';leaf.style.animationDuration='';$('current').style.visibility='';$('nextPage').style.display='none';$('nextPage').style.zIndex='';book.classList.remove('riffling');current=n;mainImg.src=src(n);resetZoom();controls();prime(n);try{history.replaceState(null,'','#page='+n)}catch(e){}}
 // Seamless GPU-rendered rolling-paper curl. Each pixel of the lifting paper is bent
 // around an illuminated cylinder, revealing and casting a shadow on the next page.
 let curlRAF=null,curlToken=0;
@@ -379,7 +381,7 @@ const curlGpu=(()=>{
   const scale=Math.min(window.devicePixelRatio||1,1.75),w=Math.max(1,Math.round(book.clientWidth*scale)),h=Math.max(1,Math.round(book.clientHeight*scale));
   curlCanvas.width=w;curlCanvas.height=h;
   if(gpuWorks){gl.viewport(0,0,w,h);gl.useProgram(program);upload(0,a);upload(1,b)}
-  else {context2d=curlCanvas.getContext('2d',{alpha:false});oldPaper=paperImage(a);newPaper=paperImage(b)}
+  else {context2d=curlCanvas.getContext('2d',{alpha:false});if(!context2d)return false;oldPaper=paperImage(a);newPaper=paperImage(b)}
   return true;
  }
  function drawFallback(t,dir){
@@ -439,6 +441,24 @@ function imageLoaded(uri){return new Promise((resolve,reject)=>{
  im.src=uri;
  if(im.complete&&im.naturalWidth)resolve(im);
 })}
+function cssPaperTurn(old,n,duration,onComplete){
+ // Stable fallback for Samsung/Android devices without working WebGL or 2D canvas.
+ // The old sheet visibly folds away over the new one and fully resets at the end.
+ const under=$('nextPage'),oldSheet=$('current');
+ targetImg.src=src(n);ff.src=src(old);fb.src=src(n);
+ under.style.display='block';under.style.zIndex='2';oldSheet.style.visibility='hidden';
+ leaf.className=(n>old?'flipForward':'flipBackward');
+ leaf.style.display='block';
+ leaf.style.animationDuration=Math.max(240,Math.min(720,duration))+'ms';
+ const finish=()=>{
+  clearTimeout(animationTimer);animationTimer=null;
+  oldSheet.style.visibility='';
+  direct(n);
+  if(typeof onComplete==='function')onComplete();
+ };
+ // Animation duration is explicitly bounded; stale styles cannot persist after release.
+ animationTimer=setTimeout(finish,Math.max(240,Math.min(720,duration))+50);
+}
 async function turn(n,options={}){
  if(n<FIRST||n>LAST||busy||n===current)return false;
  const diff=n-current;
@@ -449,7 +469,7 @@ async function turn(n,options={}){
  try{
   const [a,b]=await Promise.all([imageLoaded(src(old)),imageLoaded(src(n))]);
   if(token!==curlToken)return false;
-  if(!curlGpu.prepare(a,b))throw Error('GPU page curl unavailable');
+  if(!curlGpu.prepare(a,b)){cssPaperTurn(old,n,options.duration||470,whenDone);return true;}
   $('page59Offer').style.display='none';curlCanvas.style.display='block';
   const started=performance.now(),duration=options.duration||960,dir=diff>0?1:-1;
   const tick=now=>{
@@ -463,7 +483,7 @@ async function turn(n,options={}){
    }
   };
   curlRAF=requestAnimationFrame(tick);
- }catch(error){console.warn('Falling back to direct turn',error);if(token===curlToken){direct(n);whenDone()}}
+ }catch(error){console.warn('Using paper flip fallback',error);if(token===curlToken){cssPaperTurn(old,n,options.duration||470,whenDone)}}
  return true;
 }
 function fast(on){instantTurns=on;$('fast').classList.toggle('active',on);$('animated').classList.toggle('active',!on);$('fast').setAttribute('aria-pressed',String(on));$('animated').setAttribute('aria-pressed',String(!on));try{localStorage.setItem('rjRollTurnFast',on?'1':'0')}catch(e){}}
@@ -473,35 +493,49 @@ function modal(id,show){$(id).hidden=!show}
    The slider remains instant. Releasing the arrow stops the queue, and the active
    page is allowed to settle completely flat before the reader becomes idle. */
 let navHoldTimer=null,navHoldActive=false,navSuppressClick=false,navDirection=0,holdPointerId=null;
+let navHeldElement=null,navRepeatScheduled=false;
 function endNavHold(){
  clearTimeout(navHoldTimer);navHoldTimer=null;
- navHoldActive=false;navDirection=0;holdPointerId=null;
- // Legacy riffle styling must never remain visible after a hold.
+ navHoldActive=false;navDirection=0;
+ if(navHeldElement&&holdPointerId!==null){
+   try{if(navHeldElement.hasPointerCapture(holdPointerId))navHeldElement.releasePointerCapture(holdPointerId)}catch(e){}
+ }
+ holdPointerId=null;navHeldElement=null;
  book.classList.remove('riffling');
 }
 function advanceHeldPages(){
+ navRepeatScheduled=false;
  if(!navHoldActive||!navDirection)return;
+ if(busy){ // finish the current actual curved page before starting the next one
+   if(!navRepeatScheduled){navRepeatScheduled=true;requestAnimationFrame(advanceHeldPages)}
+   return;
+ }
  const to=current+navDirection;
  if(to<FIRST||to>LAST){endNavHold();return;}
- if(busy){requestAnimationFrame(advanceHeldPages);return;}
- // An actual curved page turn, faster than a normal tap but slower than the scrub slider.
- turn(to,{duration:470,forceCurl:true,onComplete:()=>{
+ turn(to,{duration:465,forceCurl:true,onComplete:()=>{
    book.classList.remove('riffling');
-   if(navHoldActive&&navDirection)requestAnimationFrame(advanceHeldPages);
+   if(navHoldActive&&navDirection&&!navRepeatScheduled){
+      navRepeatScheduled=true;requestAnimationFrame(advanceHeldPages);
+   }
  }});
 }
 function attachHoldNav(el,direction){
  el.addEventListener('pointerdown',ev=>{
   if(ev.button!==0&&ev.pointerType!=='touch')return;
-  endNavHold();navSuppressClick=false;navDirection=direction;holdPointerId=ev.pointerId;
+  if(el.disabled)return;
+  endNavHold();navSuppressClick=false;navDirection=direction;
+  navHeldElement=el;holdPointerId=ev.pointerId;
+  // Capture immediately; waiting until after long-press loses Android pointers.
+  try{el.setPointerCapture(ev.pointerId)}catch(e){}
   navHoldTimer=setTimeout(()=>{
+   navHoldTimer=null;
    navHoldActive=true;navSuppressClick=true;
-   try{el.setPointerCapture(ev.pointerId)}catch(e){}
    advanceHeldPages();
-  },300);
+  },260);
  });
  for(const type of ['pointerup','pointercancel','lostpointercapture'])el.addEventListener(type,endNavHold);
  el.addEventListener('contextmenu',ev=>ev.preventDefault());
+ el.addEventListener('dragstart',ev=>ev.preventDefault());
  el.addEventListener('click',ev=>{
   if(navSuppressClick){ev.preventDefault();ev.stopImmediatePropagation();navSuppressClick=false;return;}
   turn(current+direction);
