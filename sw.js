@@ -1,6 +1,6 @@
-// R&J Merseyside catalogue — approved Max master 20261019-MAX-PLATINUM-LIVE3.
+// R&J Merseyside catalogue — approved Max master 20261020-MAX-NEW-COVER-PAGE2.
 // New cache namespace ensures corrected pages replace the previous catalogue.
-const CACHE='rj-merseyside-max-20261019-MAX-PLATINUM-LIVE3';
+const CACHE='rj-merseyside-max-20261020-MAX-NEW-COVER-PAGE2';
 const CORE=['./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon-180.png','./icon-maskable-512.png'];
 self.addEventListener('install', event=>{
   event.waitUntil(caches.open(CACHE)
