@@ -1,4 +1,15 @@
 <!doctype html><html lang="en"><head>
+<script id="max-saved-launch-check">
+(()=>{
+  const SEEN='rj_max_welcome_seen_v2', SAVED='rj_max_home_icon_confirmed_v2';
+  const standalone=()=>((window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true);
+  let seen=false,saved=false;
+  try{seen=localStorage.getItem(SEEN)==='1';saved=localStorage.getItem(SAVED)==='1';if(standalone()){saved=true;localStorage.setItem(SAVED,'1');}}catch(_){saved=standalone();}
+  window.MAX_START_GATE={SEEN,SAVED,standalone,show:!seen&&!saved};
+  document.documentElement.classList.toggle('max-first-visit',!seen&&!saved);
+})();
+</script>
+
 
 
 
@@ -480,7 +491,7 @@ nav{padding-bottom:3px}
 @media(max-width:390px){#contactBar .contact-button{font-size:9px!important;padding-left:1px;padding-right:1px}#rjlead-dialog .rjlead-card{padding:14px}#rjlead-invite{bottom:calc(98px + env(safe-area-inset-bottom))}}
 @media(max-height:570px){#rjlead-dialog .rjlead-card{max-height:96dvh}#rjlead-invite{bottom:90px}}
 </style>
-<meta name="rj-release" content="max-20261101-open-save-index-search">
+<meta name="rj-release" content="max-20261101-once-only-open-save-v2">
 <style id="max-open-save-search-final">
 /* Max Merseyside: two non-destructive catalogue navigation controls and opening screen. */
 #maxNavQuick{display:flex;align-items:center;gap:4px;min-width:0;margin:0 auto 2px;max-width:1000px}
@@ -521,14 +532,82 @@ nav{padding-bottom:3px}
 @media(max-height:610px){.max-welcome-card{gap:5px;padding:10px}.max-cover-preview{max-height:19dvh}.max-welcome-actions button{min-height:42px}.max-welcome-card p{font-size:12px}}
 @media print{#maxWelcome,#maxLookup,#maxNavQuick{display:none!important}}
 </style>
+
+<style id="max-match-south-wales-reader-layout">
+/* Match Andy's approved compact two-column reader controls, NOT Max's superseded
+   triple INDEX/SEARCH/TAP row. Do not alter images, code buttons or quote logic. */
+nav[aria-label="Catalogue page navigation"]{padding:3px 6px 4px!important}
+#maxNavQuick{
+  display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  align-items:stretch!important;gap:7px!important;width:100%!important;
+  height:54px!important;max-width:1000px!important;margin:0 auto 4px!important;
+}
+#maxNavQuick .max-unified-search{
+  box-sizing:border-box!important;display:flex!important;align-items:center!important;
+  justify-content:space-between!important;gap:5px!important;min-width:0!important;
+  width:100%!important;height:54px!important;min-height:54px!important;
+  padding:4px 10px!important;text-align:left!important;
+  border:2px solid #edc65c!important;border-radius:11px!important;
+  background:linear-gradient(160deg,#1f5271 0%,#0a304b 60%,#081e34 100%)!important;
+  color:#fff!important;box-shadow:inset 0 1px #5c89a9,0 2px 5px #0008!important;
+  font:900 clamp(11px,3.0vw,16px)/1.18 system-ui,sans-serif!important;
+  white-space:normal!important;letter-spacing:0!important;
+}
+#maxIndexOpen .max-launch-icon{flex:0 0 auto;font-size:clamp(22px,6vw,30px);line-height:1}
+#maxIndexOpen .max-launch-label{min-width:0;flex:1;display:block;color:#fff;font-weight:900}
+#maxIndexOpen .max-launch-caret{flex:0 0 auto;font-size:20px;color:#f5d57f}
+#maxNavQuick #rjq-guide{
+  box-sizing:border-box!important;display:flex!important;flex-direction:row!important;
+  align-items:center!important;justify-content:center!important;gap:7px!important;
+  margin:0!important;padding:5px 8px!important;width:100%!important;height:54px!important;
+  min-height:54px!important;border:1px solid #64839e!important;border-radius:10px!important;
+  background:linear-gradient(155deg,#253e5a,#10273d)!important;
+  box-shadow:inset 0 1px #708eaa,0 1px 4px #0006!important;
+  font:750 clamp(10px,2.8vw,14px)/1.18 system-ui,sans-serif!important;
+  text-align:center!important;white-space:normal!important;cursor:pointer!important;
+}
+#maxNavQuick #rjq-guide .max-guide-icon{font-size:clamp(22px,6vw,31px);flex:0 0 auto}
+#maxNavQuick #rjq-guide > .max-guide-label{min-width:0;display:flex!important;flex-direction:column;gap:4px;white-space:normal!important}
+#maxNavQuick #rjq-guide strong{display:block!important;color:#f8d06b!important;white-space:normal!important;letter-spacing:0!important;font-size:clamp(10px,2.75vw,14px)!important}
+#maxNavQuick #rjq-guide .max-guide-label>span{display:block!important;color:#f2f6ff!important;font-size:clamp(9px,2.5vw,13px)!important;letter-spacing:0!important}
+#maxNavQuick #maxSearchOpen[hidden]{display:none!important}
+/* Quote button remains in the page counter row just like Andy's book. */
+nav .nav-strip{height:43px!important;gap:6px!important}
+nav .nav-arrow{height:39px!important;flex-basis:46px!important}
+nav .scrub-top{min-height:19px!important}
+nav #count{font-size:clamp(12px,3.2vw,16px)!important;font-weight:900!important}
+nav #rjq-toggle{height:30px!important;min-height:30px!important;font-size:clamp(11px,2.9vw,14px)!important;padding:3px 8px!important}
+/* Close enough to the reference on narrow Samsung screens with no truncated guides. */
+@media(max-width:360px){#maxNavQuick{gap:5px!important}#maxNavQuick .max-unified-search{padding:4px 6px!important}#maxNavQuick #rjq-guide{padding:3px 4px!important;gap:4px!important}}
+@media(max-height:600px){#maxNavQuick{height:47px!important}#maxNavQuick .max-unified-search,#maxNavQuick #rjq-guide{height:47px!important;min-height:47px!important}}
+@media print{#maxNavQuick,nav,#contactBar{display:none!important}}
+</style>
+<style id="max-welcome-single-gate-v2">
+/* No interruptive prompt on repeat visits or Home Screen launch. */
+#maxWelcome{display:none!important}
+html.max-first-visit #maxWelcome{display:flex!important}
+/* The two images are genuine catalogue artwork, not generated replacements. */
+.max-visual-pair{width:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:11px;align-items:center;justify-items:center;margin:2px 0 3px;min-height:175px}
+.max-visual-column{min-width:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.max-visual-caption{font:850 10px/1.2 system-ui,sans-serif;color:#ffe29a;letter-spacing:.08em;min-height:13px;text-align:center}
+#maxCoverPreview{width:auto;max-width:100%;height:min(32dvh,228px);max-height:228px;object-fit:contain;box-shadow:0 6px 20px #0009;border:1px solid #eee7d6;border-radius:3px}
+.max-phone-frame{position:relative;box-sizing:border-box;width:min(100%,136px);height:min(33dvh,240px);max-height:240px;aspect-ratio:9 / 18.6;border:5px solid #101723;border-radius:22px;background:#111827;box-shadow:0 5px 16px #0009,inset 0 0 0 1px #8692a6;overflow:hidden;padding:7px 3px 4px}
+.max-phone-notch{position:absolute;z-index:2;top:2px;left:50%;transform:translateX(-50%);width:37%;height:7px;border-radius:5px;background:#030711}
+#maxPhonePreview{display:block!important;width:100%;height:100%;border-radius:8px;object-fit:contain;background:#fff}
+#maxPhonePreview:not([src]){background:linear-gradient(140deg,#7d8790,#eef2f4)}
+@media(max-height:650px){.max-visual-pair{min-height:115px;gap:7px}#maxCoverPreview{height:23dvh}.max-phone-frame{height:24dvh}.max-welcome-card{gap:6px!important;padding:11px!important}}
+</style>
 </head><body>
-<!-- Max: intentionally first screen on every visit. No auto-close or expiry. -->
+<!-- Max: show welcome once for first-time browser visitors; saved icons go directly to the cover. -->
 <section id="maxWelcome" role="dialog" aria-modal="true" aria-labelledby="maxWelcomeTitle">
   <div class="max-welcome-card">
     <div class="max-welcome-brand">R&amp;J BUILDERS HARDWARE</div>
     <h1 id="maxWelcomeTitle">MAX'S MERSEYSIDE<br>TRADE CATALOGUE</h1>
     <p>118 pages of building products, trade offers and a quote you can send straight to me.</p>
-    <img id="maxCoverPreview" class="max-cover-preview" alt="Official Max Merseyside catalogue front cover" hidden>
+    <div class="max-visual-pair" aria-label="The genuine R and J catalogue alongside the catalogue on a phone">
+      <div class="max-visual-column"><span class="max-visual-caption">THE CATALOGUE</span><img id="maxCoverPreview" class="max-cover-preview" alt="Official Max Merseyside catalogue front cover"></div>
+      <div class="max-visual-column"><span class="max-visual-caption">ON YOUR PHONE</span><div class="max-phone-frame"><span class="max-phone-notch" aria-hidden="true"></span><img id="maxPhonePreview" alt="Genuine R and J trade catalogue product page displayed on a phone"></div></div>
+    </div>
     <div class="max-welcome-actions">
       <button type="button" id="maxOpenCatalogue">📖 OPEN CATALOGUE</button>
       <button type="button" id="maxSaveFromWelcome">⇩ SAVE TO MY PHONE</button>
@@ -546,7 +625,7 @@ nav{padding-bottom:3px}
 
 </button>
 </div><span id="notice"></span><span id="hint">Swipe pages · Pinch to zoom · Drag to move</span></main>
-<nav aria-label="Catalogue page navigation"><div id="maxNavQuick"><div id="rjq-guide" role="button" tabindex="0" title="Choose from all products on this page" aria-label="Choose a product code from this page"><span aria-hidden="true">👆</span><strong>TAP A PRODUCT CODE</strong><span>OR TAP HERE TO CHOOSE</span></div><button id="maxIndexOpen" class="max-search-launch" type="button" aria-label="Open catalogue page index">INDEX</button><button id="maxSearchOpen" class="max-search-launch" type="button" aria-label="Search all catalogue product codes and descriptions">⌕ SEARCH</button></div><div class="nav-strip">
+<nav aria-label="Catalogue page navigation"><div id="maxNavQuick"><button id="maxIndexOpen" class="max-search-launch max-unified-search" type="button" aria-label="Index and product search across the full catalogue"><span class="max-launch-icon" aria-hidden="true">🔎</span><span class="max-launch-label">INDEX &amp; PRODUCT<br>SEARCH</span><span class="max-launch-caret" aria-hidden="true">›</span></button><div id="rjq-guide" role="button" tabindex="0" title="Choose from all products on this page" aria-label="Choose a product code from this page"><span class="max-guide-icon" aria-hidden="true">👆</span><span class="max-guide-label"><strong>TAP A PRODUCT CODE</strong><span>OR TAP HERE TO CHOOSE</span></span></div><button id="maxSearchOpen" type="button" hidden tabindex="-1" aria-hidden="true">SEARCH</button></div><div class="nav-strip">
 <button id="prev" class="nav-arrow" type="button" aria-label="Previous page; hold to flip faster" title="Tap: one page · Hold: rapid page turns">«</button>
 <div class="scrub-unit"><div class="scrub-top"><span id="count" class="position" aria-live="polite">PAGE 1 / 118</span></div><input id="scrub" type="range" min="1" max="118" value="1" aria-label="Drag slider to turn quickly to any page" title="Slide to any page"></div>
 <button id="next" class="nav-arrow" type="button" aria-label="Next page; hold to flip faster" title="Tap: one page · Hold: rapid page turns">»</button>
@@ -3562,13 +3641,25 @@ new MutationObserver(sync).observe(counter,{childList:true,characterData:true,su
  const normalized=s=>String(s).normalize('NFKD').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
  const codeNorm=s=>String(s).toLowerCase().replace(/[^a-z0-9]/g,'');
  let mode='products', limit=45, filtered=[];
- const cover=el('maxCoverPreview');
- try{if(typeof PAGE_IMAGES!=='undefined'&&PAGE_IMAGES[0]){cover.src=PAGE_IMAGES[0];cover.hidden=false;}}catch(_){ }
- const welcomeClose=()=>{welcome.hidden=true;};
+ const cover=el('maxCoverPreview'), phone=el('maxPhonePreview');
+ try{
+   if(typeof PAGE_IMAGES!=='undefined'&&PAGE_IMAGES[0])cover.src=PAGE_IMAGES[0];
+   // Authentic Page 7 contractors tools artwork, from the original catalogue, inside a phone outline.
+   if(typeof PAGE_IMAGES!=='undefined'&&PAGE_IMAGES[6])phone.src=PAGE_IMAGES[6];
+ }catch(_){ }
+ const gate=window.MAX_START_GATE||{SEEN:'rj_max_welcome_seen_v2',SAVED:'rj_max_home_icon_confirmed_v2',standalone:()=>false,show:true};
+ const markSeen=()=>{try{localStorage.setItem(gate.SEEN,'1')}catch(_){}};
+ const welcomeClose=()=>{markSeen();welcome.hidden=true;document.documentElement.classList.remove('max-first-visit');if(typeof direct==='function')direct(1);};
+ // Installed PWAs open directly to the front cover. Browser visitors see the gate only once.
+ if(!gate.show){welcome.hidden=true;if(gate.standalone()||(()=>{try{return localStorage.getItem(gate.SAVED)==='1'}catch(_){return false}})()){if(typeof direct==='function')direct(1);}}
  el('maxOpenCatalogue').addEventListener('click',welcomeClose);
  el('maxSaveFromWelcome').addEventListener('click',()=>{
-   welcomeClose(); // Native save / install guidance must be on top and usable.
+   welcomeClose(); // Save instructions can appear; never show a second Open/Save choice.
    el('saveCatalogue')?.click();
+ });
+ window.addEventListener('appinstalled',()=>{
+   try{localStorage.setItem(gate.SAVED,'1')}catch(_){ }
+   welcome.hidden=true;document.documentElement.classList.remove('max-first-visit');
  });
  const makeNode=(tag,cls,txt)=>{const node=document.createElement(tag);if(cls)node.className=cls;if(txt!==undefined)node.textContent=txt;return node;};
  function goToPage(page){
@@ -3632,7 +3723,7 @@ new MutationObserver(sync).observe(counter,{childList:true,characterData:true,su
  }
  function changeMode(next){mode=next;limit=45;input.placeholder=next==='index'?'Page number or product name':'Product name, code or page number';el('maxIndexTab').setAttribute('aria-selected',String(mode==='index'));el('maxProductsTab').setAttribute('aria-selected',String(mode==='products'));render();}
  function open(modeName){dialog.hidden=false;input.value='';changeMode(modeName);setTimeout(()=>{if(!dialog.hidden)input.focus({preventScroll:true});},30);}
- el('maxIndexOpen').addEventListener('click',()=>open('index'));
+ el('maxIndexOpen').addEventListener('click',()=>open('products'));
  el('maxSearchOpen').addEventListener('click',()=>open('products'));
  el('maxIndexTab').addEventListener('click',()=>changeMode('index'));
  el('maxProductsTab').addEventListener('click',()=>changeMode('products'));
