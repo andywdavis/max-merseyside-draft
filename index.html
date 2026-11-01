@@ -480,7 +480,63 @@ nav{padding-bottom:3px}
 @media(max-width:390px){#contactBar .contact-button{font-size:9px!important;padding-left:1px;padding-right:1px}#rjlead-dialog .rjlead-card{padding:14px}#rjlead-invite{bottom:calc(98px + env(safe-area-inset-bottom))}}
 @media(max-height:570px){#rjlead-dialog .rjlead-card{max-height:96dvh}#rjlead-invite{bottom:90px}}
 </style>
-<meta name="rj-release" content="max-20261029-page8-contact-codefix"></head><body>
+<meta name="rj-release" content="max-20261101-open-save-index-search">
+<style id="max-open-save-search-final">
+/* Max Merseyside: two non-destructive catalogue navigation controls and opening screen. */
+#maxNavQuick{display:flex;align-items:center;gap:4px;min-width:0;margin:0 auto 2px;max-width:1000px}
+#maxNavQuick #rjq-guide{margin:0;min-width:0;flex:1;width:auto;min-height:29px}
+.max-search-launch{flex:0 0 auto;height:29px;min-width:60px;padding:0 8px;border:1px solid #f2d98b;border-radius:7px;background:linear-gradient(#ffedaa,#d7a744);color:#192a3b;font:900 11px/1 system-ui,Arial,sans-serif;box-shadow:inset 0 1px #fff7,0 1px 3px #0006;white-space:nowrap}
+#maxSearchOpen{min-width:88px;background:linear-gradient(#f5f8fd,#bccde0);border-color:#dbe6f4}
+@media(max-width:470px){#maxNavQuick #rjq-guide{font-size:10px;gap:4px;padding:3px 2px}#maxNavQuick #rjq-guide span:last-child{display:none}.max-search-launch{font-size:11px;padding:0 5px;min-width:49px}#maxSearchOpen{min-width:81px}}
+#maxWelcome{position:fixed;inset:0;z-index:300000;background:linear-gradient(150deg,#080f1b,#20354b 53%,#0a111b);display:flex;align-items:center;justify-content:center;padding:14px;box-sizing:border-box;font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:white}
+#maxWelcome[hidden],#maxLookup[hidden]{display:none!important}
+.max-welcome-card{box-sizing:border-box;width:min(100%,510px);max-height:96dvh;overflow:auto;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;background:linear-gradient(155deg,#273b51,#101c2c);border:2px solid #d8b56a;border-radius:22px;padding:18px 17px;box-shadow:0 20px 60px #000a}
+.max-welcome-brand{font-size:13px;letter-spacing:.12em;color:#ffe3a5;font-weight:950}
+.max-welcome-card h1{font:950 clamp(23px,6.3vw,33px)/1.1 system-ui;letter-spacing:-.03em;margin:0;color:#fff}
+.max-welcome-card p{font-size:14px;line-height:1.4;color:#dfe9f3;margin:0}
+.max-cover-preview{width:min(58%,150px);max-height:27dvh;object-fit:contain;border:2px solid #fff3;border-radius:5px;background:#fff;box-shadow:0 5px 19px #0008}
+.max-welcome-actions{display:grid;grid-template-columns:1fr;gap:9px;width:100%}
+.max-welcome-actions button{width:100%;min-height:52px;border-radius:12px;border:1px solid #fae4a2;font-size:16px;font-weight:950;letter-spacing:.02em;color:#112138;background:linear-gradient(#ffefad,#d9aa3d);box-shadow:0 3px 7px #0006}
+#maxOpenCatalogue{background:linear-gradient(#f8fafb,#cbd8e9);border-color:#f9fbff}
+.max-welcome-note{font-size:11px!important;color:#b8cadb!important}
+#maxLookup{position:fixed;inset:0;z-index:200000;display:flex;align-items:center;justify-content:center;padding:9px;box-sizing:border-box;background:#020912dc;font-family:system-ui,-apple-system,Arial,sans-serif;color:#fff}
+.max-lookup-panel{display:flex;flex-direction:column;gap:10px;width:min(100%,540px);max-height:calc(100dvh - 18px);min-height:290px;padding:14px;background:linear-gradient(155deg,#243c56,#101c2c);border:1px solid #d7b66c;border-radius:17px;box-shadow:0 12px 44px #000a;box-sizing:border-box}
+.max-lookup-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex:none}
+.max-lookup-head strong{font-size:21px;font-weight:950;letter-spacing:-.02em}
+#maxSearchClose{min-height:35px;padding:6px 12px;border-radius:8px;color:#18314a;background:#ebf3ff;border:1px solid #fff;font-weight:900}
+.max-lookup-tabs{display:grid;grid-template-columns:1fr 1fr;gap:7px;flex:none}
+.max-lookup-tabs button{padding:10px 5px;min-height:40px;border:1px solid #7d93ae;background:#25384e;color:#ecf4fc;border-radius:9px;font-weight:850}
+.max-lookup-tabs button[aria-selected="true"]{background:#ffe3a1;color:#17253a;border-color:#ffecba}
+#maxSearchText{width:100%;min-height:46px;font:650 16px system-ui;box-sizing:border-box;padding:11px;border-radius:9px;color:#1c2d43;background:#fff;border:2px solid #a0b7cd;flex:none}
+#maxSearchTip{margin:0;color:#bacee2;font-size:12px;flex:none;line-height:1.3}
+#maxSearchResults{min-height:100px;overflow:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:7px;flex:1 1 auto;padding-right:3px}
+.max-result{width:100%;display:flex;justify-content:space-between;align-items:center;gap:9px;padding:10px;text-align:left;background:#f8fbff;border:1px solid #cfdfef;border-radius:9px;color:#15283c;cursor:pointer;touch-action:manipulation;min-height:57px}
+.max-result strong{display:block;color:#12263c;font-size:14px;font-weight:950}
+.max-result small{display:block;color:#4a5f74;font-size:12px;line-height:1.3;margin-top:3px}
+.max-page-pill{white-space:nowrap;background:#203e62;border-radius:8px;color:#fff;padding:7px 8px;font-size:12px;font-weight:950}
+.max-result-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.max-results-empty{color:#dbe7f3;text-align:center;padding:23px 10px;font-size:14px}
+#maxLoadMore{flex:none;min-height:38px;background:#deba67;border:1px solid #ffe7a0;border-radius:9px;color:#17263a;font-weight:900}
+#maxLoadMore[hidden]{display:none}
+@media(max-height:610px){.max-welcome-card{gap:5px;padding:10px}.max-cover-preview{max-height:19dvh}.max-welcome-actions button{min-height:42px}.max-welcome-card p{font-size:12px}}
+@media print{#maxWelcome,#maxLookup,#maxNavQuick{display:none!important}}
+</style>
+</head><body>
+<!-- Max: intentionally first screen on every visit. No auto-close or expiry. -->
+<section id="maxWelcome" role="dialog" aria-modal="true" aria-labelledby="maxWelcomeTitle">
+  <div class="max-welcome-card">
+    <div class="max-welcome-brand">R&amp;J BUILDERS HARDWARE</div>
+    <h1 id="maxWelcomeTitle">MAX'S MERSEYSIDE<br>TRADE CATALOGUE</h1>
+    <p>118 pages of building products, trade offers and a quote you can send straight to me.</p>
+    <img id="maxCoverPreview" class="max-cover-preview" alt="Official Max Merseyside catalogue front cover" hidden>
+    <div class="max-welcome-actions">
+      <button type="button" id="maxOpenCatalogue">📖 OPEN CATALOGUE</button>
+      <button type="button" id="maxSaveFromWelcome">⇩ SAVE TO MY PHONE</button>
+    </div>
+    <p class="max-welcome-note">Browse · Search · Tap a product code · Send me your quote</p>
+  </div>
+</section>
+
 <main id="stage" aria-label="R and J catalogue pages. Swipe to turn, pinch to zoom. Press and hold arrows to flip quickly.">
 <div id="book">
 <div id="nextPage" class="sheet"><img id="targetImg" alt="Next catalogue page"></div>
@@ -490,7 +546,7 @@ nav{padding-bottom:3px}
 
 </button>
 </div><span id="notice"></span><span id="hint">Swipe pages · Pinch to zoom · Drag to move</span></main>
-<nav aria-label="Catalogue page navigation"><div id="rjq-guide" role="button" tabindex="0" title="Choose from all products on this page" aria-label="Choose a product code from this page"><span aria-hidden="true">👆</span><strong>TAP A PRODUCT CODE</strong><span>OR TAP HERE TO CHOOSE</span></div><div class="nav-strip">
+<nav aria-label="Catalogue page navigation"><div id="maxNavQuick"><div id="rjq-guide" role="button" tabindex="0" title="Choose from all products on this page" aria-label="Choose a product code from this page"><span aria-hidden="true">👆</span><strong>TAP A PRODUCT CODE</strong><span>OR TAP HERE TO CHOOSE</span></div><button id="maxIndexOpen" class="max-search-launch" type="button" aria-label="Open catalogue page index">INDEX</button><button id="maxSearchOpen" class="max-search-launch" type="button" aria-label="Search all catalogue product codes and descriptions">⌕ SEARCH</button></div><div class="nav-strip">
 <button id="prev" class="nav-arrow" type="button" aria-label="Previous page; hold to flip faster" title="Tap: one page · Hold: rapid page turns">«</button>
 <div class="scrub-unit"><div class="scrub-top"><span id="count" class="position" aria-live="polite">PAGE 1 / 118</span></div><input id="scrub" type="range" min="1" max="118" value="1" aria-label="Drag slider to turn quickly to any page" title="Slide to any page"></div>
 <button id="next" class="nav-arrow" type="button" aria-label="Next page; hold to flip faster" title="Tap: one page · Hold: rapid page turns">»</button>
@@ -3384,6 +3440,22 @@ new MutationObserver(sync).observe(counter,{childList:true,characterData:true,su
 })();
 </script>
 
+
+<!-- Searches the original verified quote-code map; catalogue images remain unchanged. -->
+<section id="maxLookup" role="dialog" aria-modal="true" aria-labelledby="maxLookupHeading" hidden>
+  <div class="max-lookup-panel">
+    <div class="max-lookup-head"><strong id="maxLookupHeading">CATALOGUE SEARCH</strong><button id="maxSearchClose" type="button">BACK ✕</button></div>
+    <div class="max-lookup-tabs" role="tablist" aria-label="Search type">
+      <button id="maxIndexTab" type="button" role="tab" aria-selected="false">PAGE INDEX</button>
+      <button id="maxProductsTab" type="button" role="tab" aria-selected="true">PRODUCT SEARCH</button>
+    </div>
+    <input id="maxSearchText" type="search" autocomplete="off" placeholder="Product name, code or page number" aria-label="Find a product or page">
+    <p id="maxSearchTip">Search all 118 pages using existing product names and codes.</p>
+    <div id="maxSearchResults" aria-live="polite"></div>
+    <button id="maxLoadMore" type="button" hidden>SHOW MORE RESULTS</button>
+  </div>
+</section>
+
 <!-- Call Me Back: optional; browsing and all product/quote controls remain available -->
 <aside id="rjlead-invite" aria-label="Optional callback invitation" hidden>
   <button id="rjlead-prompt-close" type="button" aria-label="Dismiss callback invitation">×</button>
@@ -3467,6 +3539,108 @@ new MutationObserver(sync).observe(counter,{childList:true,characterData:true,su
  dialog.addEventListener('click',(e)=>{if(e.target===dialog)closeForm()});
  document.addEventListener('keydown',(e)=>{if(e.key==='Escape'&&!dialog.hidden)closeForm()});
  try{if(localStorage.getItem(key)!=='1')setTimeout(()=>{if(dialog.hidden&&prompt.hidden)prompt.hidden=false},1800)}catch(_){setTimeout(()=>{if(dialog.hidden)prompt.hidden=false},1800)}
+})();
+</script>
+
+<script id="max-open-save-search-logic">
+(()=>{'use strict';
+ const el=id=>document.getElementById(id);
+ const welcome=el('maxWelcome'), dialog=el('maxLookup'), input=el('maxSearchText'), results=el('maxSearchResults'), more=el('maxLoadMore');
+ const map=window.RJ_QUOTE_MAPS?.max||{};
+ const pageLabel=p=>String(p).endsWith('.5')?String(Math.trunc(p))+'B':String(p);
+ // Every numbered page appears in the index, including the cover and introduction.
+ const pageKeys=[...Array.from({length:118},(_,i)=>i+1),2.5,3.5,9.5,70.5,109.5].sort((a,b)=>a-b);
+ const indexed=[];
+ for(const [page, entries] of Object.entries(map)){
+   for(const x of entries){
+     if(!x.code)continue;
+     indexed.push({page:Number(page),code:String(x.code),description:String(x.description||'')});
+   }
+ }
+ // The extra 3B, 9B, 70B and 109B artwork is present in this catalogue. Their
+ // product codes are already represented in the verified mapped numbered pages.
+ const normalized=s=>String(s).normalize('NFKD').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+ const codeNorm=s=>String(s).toLowerCase().replace(/[^a-z0-9]/g,'');
+ let mode='products', limit=45, filtered=[];
+ const cover=el('maxCoverPreview');
+ try{if(typeof PAGE_IMAGES!=='undefined'&&PAGE_IMAGES[0]){cover.src=PAGE_IMAGES[0];cover.hidden=false;}}catch(_){ }
+ const welcomeClose=()=>{welcome.hidden=true;};
+ el('maxOpenCatalogue').addEventListener('click',welcomeClose);
+ el('maxSaveFromWelcome').addEventListener('click',()=>{
+   welcomeClose(); // Native save / install guidance must be on top and usable.
+   el('saveCatalogue')?.click();
+ });
+ const makeNode=(tag,cls,txt)=>{const node=document.createElement(tag);if(cls)node.className=cls;if(txt!==undefined)node.textContent=txt;return node;};
+ function goToPage(page){
+   if(typeof direct==='function'){
+     direct(page);
+     dialog.hidden=true;
+     input.blur();
+   }
+ }
+ function makeResult(data,isIndex){
+   const b=makeNode('button','max-result');b.type='button';
+   const detail=makeNode('span');
+   detail.append(makeNode('strong',null,isIndex?'Page '+pageLabel(data.page):data.code));
+   detail.append(makeNode('small',null,isIndex?data.summary:data.description));
+   b.append(detail,makeNode('span','max-page-pill',isIndex?'OPEN ↗':'PG '+pageLabel(data.page)));
+   b.addEventListener('click',()=>goToPage(data.page));
+   return b;
+ }
+ function productMatches(query){
+   const q=normalized(query), cq=codeNorm(query), parts=q.split(/\s+/).filter(Boolean);
+   const number=String(query).trim().match(/^(?:page|pg|p)?\s*(\d{1,3})([bB])?$/i);
+   const matched=indexed.filter(x=>{
+     if(!q)return false;
+     const words=normalized(x.description+' '+x.code);
+     return parts.every(term=>words.includes(term))||(cq&&codeNorm(x.code).includes(cq));
+   }).sort((a,b)=>{
+     const aExact=codeNorm(a.code)===cq?1:0,bExact=codeNorm(b.code)===cq?1:0;
+     return bExact-aExact||a.page-b.page||a.code.localeCompare(b.code);
+   });
+   if(number){
+     const pg=Number(number[1])+(number[2]?0.5:0);
+     if(pageKeys.includes(pg))matched.unshift({page:pg,code:'OPEN PAGE '+pageLabel(pg),description:'Go straight to page '+pageLabel(pg)});
+   }
+   return matched;
+ }
+ function indexMatches(query){
+   const q=normalized(query),clean=String(query).trim().toLowerCase();
+   return pageKeys.map(page=>{
+     const entries=map[String(page)]||[];
+     const description=page===1?'Front cover':page===2?'Welcome and introduction':
+       entries.length?entries.slice(0,2).map(x=>x.description||x.code).join(' · '):'Additional catalogue page';
+     return {page,summary:description,haystack:normalized('page '+pageLabel(page)+' '+description+' '+entries.map(x=>x.code+' '+(x.description||'')).join(' '))};
+   }).filter(x=>!q||x.haystack.includes(q)||String(pageLabel(x.page)).toLowerCase()===clean);
+ }
+ function render(){
+   const query=input.value.trim();
+   filtered=mode==='index'?indexMatches(query):productMatches(query);
+   if(mode==='products'&&!query){
+     results.replaceChildren(makeNode('div','max-results-empty','Type a product name, a product code, or a page number to search.'));
+     more.hidden=true;
+     el('maxSearchTip').textContent='Search approximately '+indexed.length.toLocaleString('en-GB')+' listed products across 118 pages.';
+     return;
+   }
+   results.replaceChildren();
+   const shown=filtered.slice(0,limit);
+   for(const item of shown)results.append(makeResult(item,mode==='index'));
+   if(!filtered.length)results.append(makeNode('div','max-results-empty','No match found. Try another product word or code.'));
+   more.hidden=filtered.length<=limit;
+   more.textContent='SHOW MORE RESULTS ('+shown.length+' / '+filtered.length+')';
+   el('maxSearchTip').textContent=filtered.length+' '+(mode==='index'?'pages':'results')+' found'+(mode==='index'?' · Tap a page to open it.':' · Tap a result to open its catalogue page.');
+ }
+ function changeMode(next){mode=next;limit=45;input.placeholder=next==='index'?'Page number or product name':'Product name, code or page number';el('maxIndexTab').setAttribute('aria-selected',String(mode==='index'));el('maxProductsTab').setAttribute('aria-selected',String(mode==='products'));render();}
+ function open(modeName){dialog.hidden=false;input.value='';changeMode(modeName);setTimeout(()=>{if(!dialog.hidden)input.focus({preventScroll:true});},30);}
+ el('maxIndexOpen').addEventListener('click',()=>open('index'));
+ el('maxSearchOpen').addEventListener('click',()=>open('products'));
+ el('maxIndexTab').addEventListener('click',()=>changeMode('index'));
+ el('maxProductsTab').addEventListener('click',()=>changeMode('products'));
+ el('maxSearchClose').addEventListener('click',()=>{dialog.hidden=true;input.blur();});
+ dialog.addEventListener('click',e=>{if(e.target===dialog){dialog.hidden=true;input.blur();}});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!dialog.hidden){dialog.hidden=true;input.blur();}});
+ input.addEventListener('input',()=>{limit=45;render();results.scrollTop=0;});
+ more.addEventListener('click',()=>{limit+=45;render();});
 })();
 </script>
 </body></html>
