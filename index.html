@@ -1,4 +1,12 @@
 <!doctype html><html lang="en"><head>
+<!-- Max's open/save and index/search are already built into this HTML.
+     Marker below opts out of duplicate UI injection by the legacy service worker. -->
+<script id="rj-safe-search-welcome-2026">window.__RJ_SAFE_SEARCH_WELCOME_2026=true;</script>
+<style id="max-disable-legacy-service-worker-overlays">
+  /* Defensive hide if an older worker attempts duplicate welcome/search UI. */
+  #rj-intro-screen,#rj-search-open,#rj-search-panel{display:none!important}
+</style>
+
 <script id="max-saved-launch-check">
 (()=>{
   const SEEN='rj_max_welcome_seen_v2', SAVED='rj_max_home_icon_confirmed_v2';
