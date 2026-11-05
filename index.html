@@ -21,7 +21,7 @@
 
 
 
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes,viewport-fit=cover"><meta name="theme-color" content="#101923"><meta name="application-name" content="Max Merseyside Division Trade Catalogue"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="R&J Max Westwell Catalogue"><title>R&amp;J Max Westwell — Merseyside 118-Page Catalogue Preview</title><meta property="og:type" content="website"><meta property="og:title" content="R&amp;J Max Merseyside Division Trade Catalogue"><meta property="og:description" content="Explore my interactive R&amp;J Merseyside trade catalogue. Browse, tap a product code and send me your quote.">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes,viewport-fit=cover"><meta name="theme-color" content="#101923"><meta name="application-name" content="Max Merseyside Division Trade Catalogue"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="R&J Max Westwell Catalogue"><title>R&amp;J Max Westwell — Merseyside 118-Page Catalogue Preview</title><meta name="description" content="Open Max Westwell's R&amp;J Builders Hardware interactive trade catalogue for Merseyside. Browse products and tap a code to request a quotation."><link rel="canonical" href="https://andywdavis.github.io/max-merseyside-draft/"><meta property="og:type" content="website"><meta property="og:site_name" content="R&amp;J Builders Hardware"><meta property="og:url" content="https://andywdavis.github.io/max-merseyside-draft/"><meta property="og:title" content="OPEN MAX'S TRADE CATALOGUE | R&amp;J Builders Hardware"><meta property="og:description" content="Max Westwell • Merseyside Division. Tap to open the interactive trade catalogue, browse products and request your quote."><meta property="og:image" content="https://andywdavis.github.io/max-merseyside-draft/icon-512.png"><meta property="og:image:secure_url" content="https://andywdavis.github.io/max-merseyside-draft/icon-512.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="512"><meta property="og:image:height" content="512"><meta property="og:image:alt" content="R&amp;J Builders Hardware – Max's Merseyside Trade Catalogue"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="OPEN MAX'S TRADE CATALOGUE | R&amp;J Builders Hardware"><meta name="twitter:description" content="Max Westwell • Merseyside. Tap to browse and request a quote."><meta name="twitter:image" content="https://andywdavis.github.io/max-merseyside-draft/icon-512.png">
 <style>
 :root{--bg:#070c14;--line:#384253;--muted:#b4c2d3;--silver:#f5f7fa;--red:#cc2936}
 *{box-sizing:border-box}html,body{width:100%;height:100%;margin:0}
@@ -1269,7 +1269,7 @@ document.getElementById('referOnWhatsapp').addEventListener('click',()=>{
  writeStored(REF_NAME_KEY,name);
  const code=currentShareCode||createReferralCode();
  const link=createShareLink(code,name);
- const message='Hi! I thought you might find the R&J Builders Hardware Trade Catalogue useful.\n\n'+link+'\n\nReferral reference: '+code+'\nRecommended by: '+name+'\n\nIf you place your first order, please quote this reference to Max (07836 603701), so he can credit my referral. Thanks!';
+ const message='🔨 *R&J BUILDERS HARDWARE*\n*OPEN MAX’S MERSEYSIDE TRADE CATALOGUE*\n\n'+link+'\n\nShared by: '+name+'\nReferral: '+code+'\n\nBrowse the catalogue, tap a gold product code and request a quote from Max.';
  try{
   const history=JSON.parse(readStored(REF_HISTORY_KEY)||'[]');
   if(Array.isArray(history)){
@@ -2805,7 +2805,7 @@ window.RJ_QUOTE_MAPS.max['3.5']=[{"code":"48053","description":"Waterproof Cotto
   }
   function text(){
     const {gifts,buckets,others,total}=reviewGroups();
-    const lines=['R&J BUILDERS HARDWARE','QUOTE REQUEST','For '+cfg.rep,''];
+    const lines=['*R&J BUILDERS HARDWARE*','*TRADE QUOTE REQUEST*','For '+cfg.rep+' | Merseyside',''];
     if(gifts.length){
       lines.push('🎁 FREE GIFTS — '+gifts.length+' earned');
       for(const gift of gifts)lines.push('Gift '+gift.code.split('-').pop()+': '+reviewGiftDescription(gift)+' — FREE');
@@ -2830,6 +2830,9 @@ window.RJ_QUOTE_MAPS.max['3.5']=[{"code":"48053","description":"Waterproof Cotto
     }
     if(buckets.length)lines.push('TOTAL XR BUCKETS: '+total+' Bkt','');
     lines.push('Please confirm prices and delivery. Thank you!');
+    // A real, public catalogue link gives WhatsApp a chance to show the R&J image preview.
+    // This is a catalogue link, not an unpriced quote-acceptance link.
+    lines.push('','📖 OPEN MAX’S TRADE CATALOGUE','https://andywdavis.github.io/max-merseyside-draft/');
     return lines.join('\n');
   }
 
