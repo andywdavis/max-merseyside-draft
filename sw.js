@@ -1,14 +1,17 @@
-/* R&J Merseyside — lean launch worker, 1 November 2026.
-   The previous worker downloaded and rewrote the entire ~19.5 MB
-   catalogue on every navigation, delaying Android home-screen launch.
-   Max's Open/Save, Index Search and Quote now live in index.html.
-   This worker deliberately does not intercept catalogue navigation,
-   add duplicate buttons, or delete caches shared with other divisions.
-*/
-'use strict';
-self.addEventListener('install', () => {
-  self.skipWaiting();
-});
-self.addEventListener('activate', event => {
-  event.waitUntil(self.clients.claim());
+const CACHE='rj-max-merseyside-pp-20261113-v1';
+const CORE=['./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon-180.png','./icon-maskable-512.png'];
+self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting()));});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('rj-max-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
+self.addEventListener('fetch',e=>{
+ if(e.request.method!=='GET')return;
+ const url=new URL(e.request.url);if(url.origin!==self.location.origin)return;
+ if(e.request.mode==='navigate'){
+  e.respondWith(fetch(e.request).then(r=>{
+   if(r.ok){const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy)).catch(()=>{});}return r;
+  }).catch(async()=>await caches.match(e.request)||await caches.match('./index.html')));
+  return;
+ }
+ e.respondWith(caches.match(e.request).then(cached=>cached||fetch(e.request).then(r=>{
+  if(r.ok){const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy)).catch(()=>{});}return r;
+ })));
 });
